@@ -1,0 +1,21 @@
+{
+  "hiload": {
+    "requiredMatches": 3,
+    "buzzwords": {
+      "scalability": ["scalab(le|ility)", "скейлэб(л|илити)"],
+      "availability": ["availability"],
+      "cloud": ["cloud", "клауд"],
+      "robust": ["robust", "robustness"]
+    }
+  },
+  "lgbt": {
+    "requiredMatches": 3,
+    "buzzwords": {
+      "gay": ["gay", "гей"],
+      "gender": ["gender", "гендер"],
+      "lgbt": ["lgbt", "лгбт"],
+      "queer": ["queer", "квир", "ин[оаыу][йяеюх]"],
+      "coming out": ["coming(\\w*)out", "камин(\\w*)аут", "камин(\\w*)аўт"]
+    }
+  }
+}

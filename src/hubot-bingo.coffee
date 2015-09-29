@@ -1,22 +1,21 @@
-# Description
-#   A hubot script that plays Buzzword bingo
-#
-# Configuration:
-#   LIST_OF_ENV_VARS_TO_SET
-#
-# Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
-#
-# Notes:
-#   <optional notes required for the script>
-#
-# Author:
-#   jcdenton[@<org>]
+_ = require('lodash')
+util = require('util')
 
-module.exports = (robot) ->
-  robot.respond /hello/, (msg) ->
-    msg.reply "hello!"
+rules = require('./bullshit')
+Bingo = require('./bingo')
 
-  robot.hear /orly/, ->
-    msg.send "yarly"
+class HubotBingoAdapter
+  constructor: (@robot) ->
+    @bingo = new Bingo(rules)
+    @robot.hear(/.*/i, @handleMessage)
+
+  formatReply: (buzzwords, name) ->
+    "#{name.toUpperCase()} BINGO! (#{buzzwords.join(', ')})"
+
+  handleMessage: (res) =>
+    wonBingos = @bingo.play(res.message.text)
+    if wonBingos
+      bingoMessages = _.map(wonBingos, @formatReply)
+      res.send(bingoMessages.join('\n'))
+
+module.exports = (robot) -> new HubotBingoAdapter(robot)
