@@ -1,9 +1,7 @@
 # hubot-bingo
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coveralls-image]][coveralls-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
 A hubot script that plays Buzzword bingo
-
-See [`src/hubot-bingo.coffee`](src/hubot-bingo.coffee) for full documentation.
 
 ## Installation
 
@@ -20,8 +18,8 @@ Then add **hubot-bingo** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> robust scalable maintainable cloud solution
+hubot>> HILOAD BINGO! (robust, scalability, cloud)
 ```
 
 [npm-url]: https://npmjs.org/package/hubot-bingo
@@ -30,5 +28,3 @@ hubot>> hello!
 [travis-image]: http://img.shields.io/travis/jcdenton/hubot-bingo/master.svg?style=flat
 [daviddm-url]: https://david-dm.org/jcdenton/hubot-bingo.svg?theme=shields.io
 [daviddm-image]: http://img.shields.io/david/jcdenton/hubot-bingo.svg?style=flat
-[coveralls-url]: https://coveralls.io/r/jcdenton/hubot-bingo
-[coveralls-image]: http://img.shields.io/coveralls/jcdenton/hubot-bingo/master.svg?style=flat
