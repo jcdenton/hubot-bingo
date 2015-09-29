@@ -1,16 +1,15 @@
-assert = require 'power-assert'
-sinon = require 'sinon'
+'use strict'
+chai = require('chai')
+sinon = require('sinon')
+sinonChai = require('sinon-chai')
+expect = chai.expect
+chai.use(sinonChai)
 
-describe 'hubot-bingo', ->
+describe 'bingo', ->
   beforeEach ->
     @robot =
-      respond: sinon.spy()
       hear: sinon.spy()
 
-    require('../src/hubot-bingo')(@robot)
-
-  it 'registers a respond listener', ->
-    assert.ok(@robot.respond.calledWith(/hello/))
-
   it 'registers a hear listener', ->
-    assert.ok(@robot.hear.calledWith(/orly/))
+    require('../src/hubot-bingo')(@robot)
+    expect(@robot.hear).to.be.calledWith(/.*/i)
