@@ -1,7 +1,7 @@
 'use strict'
 
-gulp = require 'gulp'
-$ = (require 'gulp-load-plugins') lazy: false
+gulp = require('gulp')
+$ = require('gulp-load-plugins')(lazy: false)
 
 paths =
   lint: [
@@ -24,7 +24,9 @@ gulp.task 'lint', ->
     .pipe $.coffeelint('./coffeelint.json')
     .pipe $.coffeelint.reporter()
 
-gulp.task 'test', ['lint']
+gulp.task 'test', ['lint'], ->
+  gulp.src paths.tests
+    .pipe $.mocha(reporter: 'nyan')
 
 gulp.task 'watch', ['test'], ->
   gulp.watch paths.watch, ['test']
