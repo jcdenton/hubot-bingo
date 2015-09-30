@@ -1,3 +1,12 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2015-09-30)
+
+
+* Updated badges ([91ad705](https://github.com/jcdenton/hubot-bingo/commit/91ad705))
+* Updated Travis CI NodeJS version ([00dec44](https://github.com/jcdenton/hubot-bingo/commit/00dec44))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2015-09-29)
 
