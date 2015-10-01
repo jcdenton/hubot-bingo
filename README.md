@@ -1,7 +1,7 @@
 # hubot-bingo
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependencies Status][daviddm-image]][daviddm-url] [![Dev Dependencies Status][daviddm-dev-image]][daviddm-dev-url]
 
-A hubot script that plays Buzzword bingo
+A hubot script that plays ~~Buzzword~~ Bullshit Bingo
 
 ## Installation
 
