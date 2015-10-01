@@ -6,16 +6,19 @@ Bingo = require('./bingo')
 
 class HubotBingoAdapter
   constructor: (@robot) ->
-    @bingo = new Bingo(rules)
+    @userBingos = {}
     @robot.hear(/.*/i, @handleMessage)
 
   formatReply: (buzzwords, name) ->
     "#{name.toUpperCase()} BINGO! (#{buzzwords.join(', ')})"
 
   handleMessage: (res) =>
-    wonBingos = @bingo.play(res.message.text)
-    if wonBingos
+    user = res.message.user
+    bingo = @userBingos[user.id] = @userBingos[user.id] or new Bingo(rules)
+    wonBingos = bingo.play(res.message.text)
+
+    if not _.isEmpty(wonBingos)
       bingoMessages = _.map(wonBingos, @formatReply)
-      res.send(bingoMessages.join('\n'))
+      res.send("@#{user.name}: #{bingoMessages.join('\n')}")
 
 module.exports = (robot) -> new HubotBingoAdapter(robot)
