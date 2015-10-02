@@ -26,7 +26,7 @@ gulp.task 'lint', ->
 
 gulp.task 'test', ['lint'], ->
   gulp.src paths.tests
-    .pipe $.mocha(reporter: 'nyan')
+    .pipe $.mocha()
 
 gulp.task 'watch', ['test'], ->
   gulp.watch paths.watch, ['test']
