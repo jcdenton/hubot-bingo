@@ -7,8 +7,8 @@ Bingo = require('./bingo')
 class HubotBingoAdapter
   constructor: (@robot) ->
     @userBingos = {}
-    @robot.respond(/scores/i, @showScores)
     @robot.hear(/.*/i, @handleMessage)
+    @robot.respond(/scores/i, @showScores)
 
   getUsername: (userId) ->
     @robot.brain.userForId(userId).name
