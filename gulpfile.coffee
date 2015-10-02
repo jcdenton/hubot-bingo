@@ -4,6 +4,7 @@ gulp = require('gulp')
 $ = require('gulp-load-plugins')(lazy: false)
 
 paths =
+  changelog: 'CHANGELOG.md'
   lint: [
     './gulpfile.coffee'
     './src/**/*.coffee'
@@ -30,5 +31,17 @@ gulp.task 'test', ['lint'], ->
 
 gulp.task 'watch', ['test'], ->
   gulp.watch paths.watch, ['test']
+
+gulp.task 'changelog', ->
+  options = {}
+  context = {}
+  gitRawCommitsOpts = {}
+  parserOpts = {}
+  writerOpts =
+    'commitsSort': 'date'
+
+  gulp.src paths.changelog
+    .pipe $.conventionalChangelog(options, context, gitRawCommitsOpts, parserOpts, writerOpts)
+    .pipe gulp.dest './'
 
 gulp.task 'default', ['test']
